@@ -16,7 +16,7 @@ export class CestaService {
 
 
   constructor(private http: HttpClient) {
-    this.itens = (JSON.parse(localStorage.getItem('produtos')));
+    this.itens = (JSON.parse(localStorage.getItem('CestaDeProdutos')));
     /* this.itens = this.itens==null?[]:this.itens; same energy Y */
 
     if (this.itens == null) {

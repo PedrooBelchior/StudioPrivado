@@ -18,6 +18,8 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
 import { AcessoUsuarioComponent } from './account/acesso-usuario/acesso-usuario.component';
 import { TestesComponent } from './testes/testes.component';
+import { ValidarCarrinhoComponent } from './validar-carrinho/validar-carrinho.component';
+
 
 
 export const ProdutosRoutes: Routes = [
@@ -116,6 +118,11 @@ export const ProdutosRoutes: Routes = [
   {
     path: 'testes',
     component: TestesComponent
-  }
+  },
 
+  {
+  path: 'validar-carrinho',
+  component: ValidarCarrinhoComponent
+  }
+  
 ];
