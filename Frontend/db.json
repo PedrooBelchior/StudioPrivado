@@ -1,0 +1,57 @@
+{
+  "Produtos": [
+    {
+      "nome": "DELUXE TELE THINLINE PAU FERRO",
+      "marca": "Fender",
+      "categoria": "Guitarra",
+      "preco": "14.990,99",
+      "descricao": "GUITARRA FENDER 014 7603 - DELUXE TELE THINLINE PAU FERRO - 300 - 3-COLOR",
+      "palavraChave": "DELUXE TELE THINLINE ",
+      "quantidade": 30,
+      "faq": {
+        "pergunta": "Acompanha qual bag?",
+        "resposta": "Acompanha a Deluxe Gig Bag"
+      },
+      "imagem": [
+        null
+      ],
+      "id": 12
+    },
+    {
+      "nome": "VINTERA 50S STRATOCASTER MODIFIED MAPLE",
+      "marca": "Fender",
+      "categoria": "Guitarra",
+      "preco": "16.490,00",
+      "descricao": "GUITARRA FENDER VINTERA 50S STRATOCASTER MODIFIED MAPLE 014-9962-303 2-COLOR SUNBURST",
+      "palavraChave": "FENDER VINTERA 50S",
+      "quantidade": 15,
+      "faq": {
+        "pergunta": "Qual a cor da guitarra?",
+        "resposta": "Seu corpo é da cor bordo."
+      },
+      "imagem": [
+        "Link da imagem 1",
+        "Link da imagem 2"
+      ],
+      "id": 13
+    },
+    {
+      "nome": "VINTERA 50S STRATOCASTER MODIFIED MAPLE",
+      "marca": "Fender",
+      "categoria": "Guitarra",
+      "preco": "16.490,00",
+      "descricao": "GUITARRA FENDER VINTERA 50S STRATOCASTER MODIFIED MAPLE 014-9962-303 2-COLOR SUNBURST",
+      "palavraChave": "FENDER VINTERA 50S",
+      "quantidade": 10,
+      "faq": {
+        "pergunta": "Qual a cor da guitarra?",
+        "resposta": "Seu corpo é da cor bordo."
+      },
+      "imagem": [
+        "Link da imagem 1",
+        "Link da imagem 2"
+      ],
+      "id": 14
+    }
+  ]
+}

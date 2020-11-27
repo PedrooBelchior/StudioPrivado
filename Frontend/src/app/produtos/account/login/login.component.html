@@ -1,0 +1,44 @@
+<br>
+<div class="container">
+  <h2>.</h2>
+</div>
+<br>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm" class="form-signin">
+  <div class="row">
+
+    <div class="col-md-4 mx-auto">
+      <br>
+      <h4 class="text-center">Adminitração Studio 141</h4>
+      <section class="form-simple">
+        <div class="card">
+          <div class="header pt-3 grey lighten-2">
+            <div class="row d-flex justify-content-start">
+              <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">Conectar-se</h3>
+            </div>
+          </div>
+          <div class="mx-4 mt-4 card-body">
+            <form novalidate="" class="ng-invalid ng-dirty ng-touched">
+              <div class="md-form"><input [(ngModel)]="login.email" name="usuario" type="text" id="simpleFormEmailEx"
+                  formcontrolname="simpleFormEmailEx" mdbinput=""
+                  class="form-control ng-invalid ng-dirty ng-touched"><label for="simpleFormEmailEx" class="active">Seu
+                  email</label></div>
+              <div class="md-form pb-3"><input [(ngModel)]="login.password" name="senha" type="password"
+                  id="simpleFormPasswordEx" formcontrolname="simpleFormPasswordEx" mdbinput=""
+                  class="form-control ng-dirty ng-valid ng-touched"><label for="simpleFormPasswordEx" class="active">Sua
+                  senha</label>
+                <p class="font-small grey-text d-flex justify-content-end">Esqueceu a <a href="#"
+                    class="dark-grey-text font-weight-bold ml-1"> Senha?</a></p>
+              </div>
+            </form>
+            <div class="text-center mb-4"><button type="submit" mdbbtn="" color="danger" block="true" mdbwaveseffect=""
+                class="z-depth-2 btn-danger btn-block btn" [disabled]="form.form.invalid">Conectar</button></div>
+            <p class="font-small grey-text d-flex justify-content-center">Não possui uma conta? <a href="#"
+                class="dark-grey-text font-weight-bold ml-1"> Solicite uma aqui!</a></p>
+          </div>
+        </div>
+      </section>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; Studio141</p>
+    </div>
+  </div>
+</form>

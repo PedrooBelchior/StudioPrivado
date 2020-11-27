@@ -1,0 +1,70 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <div class="container">
+      <br>
+      <div class="container">
+        <h2>Lista de Produtos</h2>
+      </div>
+      <br>
+      <div class="container">
+        <div class='row justify-content-start marginTabela justify-content-between'>
+          <form class="form-inline comMarginBottom">
+            <input type='search' placeholder='Pesquisar' class='form-inline form-control mr-sm-1'>
+            <button class="btn btn-info my-2 my-sm-0" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+          <!-- <form class="form-inline">
+            <a type='submit' [routerLink]="['/estoquista/listar']" class='btn btn-info  centralizar'>
+              Perfil Estoquista
+            </a>
+          </form> -->
+          <form class="form-inline">
+            <a type='submit' [routerLink]="['/produtos/cadastrar']" class='btn btn-success  centralizar'>
+              <i class="fas fa-plus"></i>
+              Novo Produto
+            </a>
+          </form>
+
+
+        </div>
+
+        <div class='row marginTabela' style='text-align: center'>
+          <table class="table">
+            <thead class="thead-default tituloTabela">
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Qunatidade</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor='let produtos of responseProdutos'>
+
+                <td scope="row"> {{ produtos._id }} </td>
+                <td class="maxCarch">{{ produtos.nome }}</td>
+                <td>{{ produtos.quantidade }}</td>
+                <td>
+                  <abbr title="Atualizar">
+                    <button type="button" class="btn btn-info" [routerLink]="['/produtos/editar', produtos._id]">
+                      <i class="fa fa-pencil">
+                      </i>
+                    </button>
+                  </abbr>&nbsp;
+                  <abbr title="Visualizar">
+                    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark"
+                      [routerLink]="['/produtos/visualizar/', produtos._id]">
+                      <i class="fa fa-eye">
+                      </i>
+                    </button>
+                  </abbr>&nbsp;
+                  <abbr title="Excluir">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluirModal"
+                      (click)="remover(produtos._id, produtos.nome)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </abbr>&nbsp;
+                </td>
+              </tr>

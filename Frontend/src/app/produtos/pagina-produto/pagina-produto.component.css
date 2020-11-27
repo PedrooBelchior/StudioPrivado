@@ -1,0 +1,58 @@
+.carousel {
+  position: relative !important;
+}
+.carousel-item img {
+  object-fit: cover!important;
+}
+#carousel-thumbs {
+  background: rgba(255,255,255,.3)!important;
+  bottom: 0!important;
+  left: 0!important;
+  padding: 0px!important;
+  right: 0!important;
+}
+#carousel-thumbs img {
+  border: 5px solid transparent!important;
+  cursor: pointer!important;
+}
+#carousel-thumbs img:hover {
+  border-color: rgba(255,255,255,.3)!important;
+}
+#carousel-thumbs .selected img {
+  border-color: #fff!important;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px!important;
+}
+@media all and (max-width: 767px) {
+  .carousel-container #carousel-thumbs img {
+    border-width: 3px!important;
+  }
+}
+@media all and (min-width: 576px) {
+  .carousel-container #carousel-thumbs {
+    position: absolute!important;
+  }
+}
+@media all and (max-width: 576px) {
+  .carousel-container #carousel-thumbs {
+    background: #ccccce!important;
+  }
+}
+.imagemFormatada{
+  max-width:475px;
+  max-height:300px;
+  width: auto;
+  height: auto;
+}
+
+.imagemFormatadaThumb{
+  max-width:165px;
+  max-height:90px;
+  width: auto;
+  height: auto;
+}
+thead{
+  background-color: black !important;
+}

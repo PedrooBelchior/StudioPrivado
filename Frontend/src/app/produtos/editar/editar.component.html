@@ -1,0 +1,270 @@
+<br>
+<div class="container">
+  <h2>.</h2>
+</div>
+<br>
+
+  <div class="well">
+    <form #formProduto="ngForm">
+      <div class="page-wrapper  font-poppins">
+        <div class="wrapper wrapper--w680">
+          <div class="card card-4">
+            <div class="card-body">
+              <h2 class="title">Editar Produto</h2>
+
+              <div class="row row-space">
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Nome</label>
+                    <input class="input--style-4" type="text" name="nome" [(ngModel)]="request.nome" #nome="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Marca</label>
+                    <input class="input--style-4" type="text" name="marca" [(ngModel)]="request.marca" #marca="ngModel" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-space">
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Categoria</label>
+                    <input class="input--style-4" type="text" name="categoria" [(ngModel)]="request.categoria"
+                      #categoria="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Valor</label>
+                    <input class="input--style-4" type="text" name="preco" [(ngModel)]="request.preco"
+                      #preco="ngModel" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-space">
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Descrição Prévia</label>
+                    <input class="input--style-4" type="text" name="descricao" [(ngModel)]="request.descricao"
+                      #descricao="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Descrição Detalhada</label>
+                    <input class="input--style-4" type="text" name="palavraChave"
+                      [(ngModel)]="request.palavraChave" #palavraChave="ngModel" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label">Quantidade</label>
+                  <input class="input--style-4" type="number" min="0" name="quantidade" [(ngModel)]="request.quantidade"
+                    #quantidade="ngModel" required>
+                </div>
+              </div>
+
+
+              <h2 class="title">FAQ</h2>
+            <div class="row row-space">
+              <div class="col-5">
+                <div class="input-group">
+                  <label class="label">Pergunta</label>
+                  <input class="input--style-4" type="list" name="pergunta" [(ngModel)]="faq.pergunta"
+                    #pergunta="ngModel">
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="input-group">
+                  <label class="label">Resposta</label>
+                  <input class="input--style-4" type="list" name="resposta" [(ngModel)]="faq.resposta"
+                    #resposta="ngModel">
+                </div>
+              </div>
+              <input type="submit" class="btn btn-success" (click)="faqs()" value="Adicionar FAQ">
+            </div>
+
+
+
+            <div class='row marginTabela' style='text-align: center'>
+              <table class="table">
+                <thead class="thead-default tituloTabela">
+                  <tr>
+                    <th scope="col">Pergunta</th>
+                    <th scope="col">Resposta</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor='let faqs of request.faq; let i = index'>
+                    <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                    <td class="maxCarch">{{ faqs.pergunta }}</td>
+                    <td class="maxCarch">{{ faqs.resposta }}</td>
+                    <td>
+
+                      <abbr title="Excluir">
+                        <button type="button" (click)="selecionarItem(i)" class="btn btn-danger" data-toggle="modal"
+                          data-target="#removerProduto">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </abbr>&nbsp;
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>&nbsp;
+            <!-- Modal Excluir-->
+            <div class="modal fade"  id="removerProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-sm modal-notify modal-danger modal-side modal-top-center" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                  <!--Header-->
+                  <div class="modal-header d-flex justify-content-center">
+                    <h2 class="heading">Tem certeza?</h2>
+                  </div>
+
+                  <!--Body-->
+                  <div class="modal-body">
+
+                    <i class="fas fa-times fa-4x animated rotateIn"></i>
+                    Deseja realmente remover o FAQ selecionado ?
+                  </div>
+
+                  <!--Footer-->
+                  <div class="modal-footer justify-content-center">
+                      <button type="button" data-dismiss="modal"
+                      class="btn btn-notify btn-outline-danger waves-effect waves-light" (click)="cancelarFaq()">Sim</button>
+                    <a type="button" class="btn btn-notify btn-danger waves-effect" data-dismiss="modal">Não</a>
+                  </div>
+                </div>
+                <!--/.Content-->
+              </div>
+            </div>
+            <br>
+            <div class="title">
+              <p>Escolha uma imagem para fazer Upload</p>
+            </div>
+            
+            <div class="dropzone">
+              <div class="info"></div>
+            </div>
+            <div class="row row-space">
+              <div class="col-10">
+
+                <div class="input-group">
+                  
+                  <input class="input--style-4" type="list" name="pergunta" [(ngModel)]="imagem.linkImagem"
+                    #pergunta="ngModel">
+                </div>
+              </div>
+              <input type="submit" class="btn btn-success" (click)="imagens()" value="Carregar da Imagem">
+            </div>&nbsp;
+
+
+
+            <div class='row marginTabela' style='text-align: center'>
+              <table class="table">
+                <thead class="thead-default tituloTabela">
+                  <tr>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor='let imagens of request.imagem; let x = index'>
+                    <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                    <td class="maxCarch">
+                      <img [src]="imagens.linkImagem" class="imagemFormatada" />
+
+                    </td>
+                    <td>
+
+                      <abbr title="Excluir">
+                        <button type="button" (click)="selecionarItem(x)" class="btn btn-danger" data-toggle="modal"
+                          data-target="#removerImagem">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </abbr>&nbsp;
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Modal Excluir-->
+
+
+            <div class="modal fade"  id="removerImagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-sm modal-notify modal-danger modal-side modal-top-center" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                  <!--Header-->
+                  <div class="modal-header d-flex justify-content-center">
+                    <h2 class="heading">Tem certeza?</h2>
+                  </div>
+
+                  <!--Body-->
+                  <div class="modal-body">
+
+                    <i class="fas fa-times fa-4x animated rotateIn"></i>
+                    Deseja realmente remover a imagem selecionada ?
+                  </div>
+
+                  <!--Footer-->
+                  <div class="modal-footer justify-content-center">
+                      <button type="button" data-dismiss="modal"
+                      class="btn btn-notify btn-outline-danger waves-effect waves-light" (click)="cancelarImagem()">Sim</button>
+                    <a type="button" class="btn btn-notify btn-danger waves-effect" data-dismiss="modal">Não</a>
+                  </div>
+                </div>
+                <!--/.Content-->
+              </div>
+              <!-- <div class="modal-dialog modal-side modal-top-right" role="document">
+                <div class="modal-content">
+                    <br>
+                  <div class="modal-header">
+                    <h2>&nbsp;Remover Imagem&nbsp;</h2><br>
+                  </div>
+                  <br>
+                  <div class="modal-body">
+                    Deseja realmente remover a imagem selecionada ?
+                  </div>
+                  <br>
+                  <div class="modal-footer"><br>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>&nbsp;
+                    <button type="button" data-dismiss="modal" class="btn btn-danger"
+                      (click)="cancelarImagem()">Remover</button>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <br>
+
+            <div class="row row-space">
+              <div class="col-5">
+                <div class="form-group">
+                  <input type="button" class="btn btn-info" (click)="update()" value="Atualizar"
+                    [disabled]="formProduto.form.invalid">
+                  <a [routerLink]="['/produtos']" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="form-group">
+                  <a [routerLink]="['/produtos/listar']"><button type="button"
+                      class="btn btn-danger botaoCancelar">Cancelar</button></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

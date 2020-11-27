@@ -1,0 +1,20 @@
+thead {
+    color: black!important;
+    background-color: white!important;
+}
+
+.modal-top-center {
+    right: 0px;
+    top: 50px;
+    left: 500px;
+    bottom: auto;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}

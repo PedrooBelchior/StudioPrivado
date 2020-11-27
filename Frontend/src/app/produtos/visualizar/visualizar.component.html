@@ -1,0 +1,44 @@
+<br>
+<div class="container">
+  <h2>.</h2>
+</div>
+<br>
+
+<div class="well">
+  <form #formProduto="ngForm">
+    <div class="page-wrapper  font-poppins">
+      <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+          <div class="card-body" style="text-align: center;">
+            <h2 class="title">Visualizar Produto</h2>
+            <img [src]="request.imagem[0].linkImagem" class="produtoImagem" alt="">
+
+            <h2 class="title">{{request.nome}}</h2>
+            <div>
+              <h4>{{request.descricao}}</h4>
+            </div>
+            <br>
+            <p class="card-text">
+                <strong>Marca:</strong> {{request.marca}}
+            </p>
+            <div class="card-text">
+              <strong>Valor:</strong> <h3>R${{request.preco}}</h3>
+            </div>
+            <small class="text-muted">à vista no boleto bancário</small>
+            <input type="submit" class="btn btn-success"  value="Comprar"
+                      disabled>
+          </div>
+          <div class="card-footer">
+            <div class="row row-space" style="margin-bottom: 10px; margin-top: 10px;">
+              <div class="col-5">
+                <div class="form-group">
+                  <a [routerLink]="['/produtos/listar']"><button type="button"
+                      class="btn btn-default botaoCancelar">Voltar</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

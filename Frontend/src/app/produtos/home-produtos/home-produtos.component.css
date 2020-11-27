@@ -1,0 +1,136 @@
+html,
+body,
+header,
+.carousel {
+  height: 60vh;
+}
+
+@media (max-width: 740px) {
+  html,
+  body,
+  header,
+  .carousel {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+  html,
+  body,
+  header,
+  .carousel {
+    height: 100vh;
+  }
+}
+
+#produtoImagem {
+  width: 150px;
+  height: 420px;
+  /* background-image: url("/assets/images/fender.png"); */
+  background-repeat: no-repeat;
+  background-size: 160px;
+  position: relative;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+
+.descricao{
+  display: none;
+}
+
+.item:hover .descricao{
+  display: block;
+}
+
+/* .descricao {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+}
+.item:hover .descricao {
+  visibility: visible;
+  opacity: 1;
+} */
+
+.modal-dialog.cascading-modal .modal-c-tabs .md-tabs li a {
+  text-align: center;
+}
+.md-tabs .nav-link.active, .md-tabs .nav-item.open .nav-link {
+  color: #fff;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: .25rem;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #495057;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+  border-color: #e9ecef #e9ecef #dee2e6;
+}
+.md-tabs .nav-link {
+  color: #fff;
+  border: 0;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+.nav-link:hover, .nav-link:focus {
+  text-decoration: none;
+}
+a:hover {
+  color: #0056b3;
+  text-decoration: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.nav-link {
+  display: block;
+  padding: .5rem 1rem;
+}
+a {
+  /* color: #007bff; */
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+user agent stylesheet
+a:-webkit-any-link:focus {
+  outline-offset: 1px;
+}
+user agent stylesheet
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+user agent stylesheet
+:focus {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+.nav li {
+  list-style: none;
+}

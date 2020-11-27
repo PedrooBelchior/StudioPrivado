@@ -1,0 +1,112 @@
+<br>
+<div class="container">
+  <h2>.</h2>
+</div>
+<br>
+
+<div class="well">
+  <form #formProduto="ngForm" class="was-validated">
+    <div class="page-wrapper  font-poppins">
+      <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+          <div class="card-body">
+            <h2 class="title">Editar Usuário</h2>
+
+
+            <div class="row row-space">
+              <div class="col-5">
+                <div class="input-group">
+                  <label class="label">Usuário</label>
+                  <input class="input--style-4" type="email" name="email" [(ngModel)]="request.email" #nome="ngModel"
+                    required>
+                  <div class="valid-feedback">Ok!</div>
+                  <div class="invalid-feedback">Insira um e-mail válido</div>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="input-group">
+                  <label class="label">Senha</label>
+                  <input class="input--style-4" type="text" name="password" [(ngModel)]="request.password"
+                    #marca="ngModel" required>
+                  <div class="valid-feedback">Ok!</div>
+                  <div class="invalid-feedback">Insira uma senha</div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-5">
+                <div class="input-group">
+                  <label class="label">Nome</label>
+                  <input class="input--style-4" type="text" minlength="5" name="nome" [(ngModel)]="request.nome"
+                    #nome="ngModel" required>
+                  <div class="valid-feedback">Ok!</div>
+                  <div class="invalid-feedback">Insira um nome com min 5 caracters</div>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="input-group">
+                  <label class="label">Sobrenome</label>
+                  <input class="input--style-4" type="text" minlength="5" name="sobrenome"
+                    [(ngModel)]="request.sobrenome" #nome="ngModel" required>
+                  <div class="valid-feedback">Ok!</div>
+                  <div class="invalid-feedback">Insira um sobrenome com min 5 caracters</div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-5">
+                <div class="input-group">
+                  <label class="label">Tipo</label>
+                  <div class=" input--style-4 rs-selec2 js-select-simple select--no-search">
+                    <select class="input--style-4" name="subject" name="tipo" [(ngModel)]="request.tipo" #tipo="ngModel"
+                      required>
+                      <option disabled="disabled" selected="selected">Escolha uma Opção</option>
+                      <option value="Administrador">Administrador</option>
+                      <option value="Estoquista">Estoquista</option>
+                      <option value="Comum">Comum</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="input-group">
+                  <label class="label">Status</label>
+                  <div class=" input--style-4 rs-select2 js-select-simple select--no-search">
+                    <select class="input--style-4" name="statusUsuario" [(ngModel)]="request.statusUsuario"
+                      #statusUsuario="ngModel" required>
+                      <option disabled="disabled" selected="selected">Escolha uma Opção</option>
+                      <option selected="selected" value="Ativo">Ativo</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="row row-space">
+              <div class="col-5">
+                <div class="form-group">
+                  <input type="button" class="btn btn-info" (click)="update()" value="Atualizar"
+                    [disabled]="formProduto.form.invalid">
+                  <a [routerLink]="['/users/listar']" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="form-group">
+                  <a [routerLink]="['/users/listar']"><button type="button"
+                      class="btn btn-danger botaoCancelar">Cancelar</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
