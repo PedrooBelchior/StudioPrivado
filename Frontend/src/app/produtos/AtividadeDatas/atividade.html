@@ -1,0 +1,83 @@
+<br>
+<div class="container">
+  <h2></h2>
+</div>
+<br>
+
+<!--Main layout-->
+<main class="mt-5 pt-4">
+  <div class="container wow fadeIn">
+
+    <!-- Heading -->
+    <h2 class="my-5 h2 text-center">Cálculo de Datas</h2>
+
+    <!--Grid row-->
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="col-md-12 mb-4">
+
+        <!--Card-->
+        <div class="card">
+
+          <!--Card content-->
+          <form class="card-body" #formProduto="ngForm">
+
+            <!--Grid row-->
+            <div class="row">
+
+              <!--Grid column-->
+              <div class="col-md-4 mb-3">
+
+                <!--firstName-->
+                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                  <input type="date" id="firstName" class="form-control active" minlength='9' required name="nome"
+                    [(ngModel)]="dataDeEntrada" #nome="ngModel" (change)="validarDataInicial();">
+                  <label for="firstName" class="active">Data Inicial</label>
+                  <div id="dataInicialInvalida" class="valid-feedback">Ok!</div>
+                  <div class="invalid-feedback">Insira uma data inicial</div>
+                </div>
+
+              </div>
+              <!--Grid column-->
+              <div class="col-md-1 mb-2"></div>
+              <!--Grid column-->
+              <div class="col-md-4 mb-2">
+
+                <!--lastName-->
+                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                  <input type="date" id="lastName" class="form-control active" minlength='9' required name="sobrenome"
+                    [(ngModel)]="dataDeSaida" #sobrenome="ngModel" (change)="validarDataFinal();">
+                  <label for="lastName" class="active">Data final</label>
+                  <div id="dataFinalInvalida" class="valid-feedback">Ok!</div>
+                  <div class="invalid-feedback">Insira uma data final</div>
+                </div>
+
+              </div>
+              <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+            <div>
+                <hr class="mb-4">
+                <h2  id="resultado" class="my-5 h2 text-center"></h2>
+                <hr class="mb-4">
+            </div>
+
+            <div class="form-group">
+                <input type="button" class="btn btn-success" (click)="verificaDatas()" value="Calcular Datas" >
+              <button type="reset" class="btn btn-info botaoCancelar" (click)="limpaCalculo()">Limpar Campos</button>
+            </div>
+
+          </form>
+
+        </div>
+        <!--/.Card-->
+
+      </div>
+
+
+    </div>
+    <!--Grid row-->
+
+  </div>

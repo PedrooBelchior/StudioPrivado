@@ -1,6 +1,12 @@
+<br>
+<div class="container">
+  <h2></h2>
+</div>
+<br>
+
 <div class="row cesta-tela">
   <div class="col-lg-4">
-    <h2 class="row cesta-img">Minha Cesta</h2>
+    <h2 class="row cesta-img">Meu Carrinho</h2>
   </div>
 </div>
 
@@ -23,23 +29,28 @@
     </div>
 
     <!-- Inicio Produto -->
-    <div class="row" *ngFor="let produto of responseProdutos; let i = index">
+    <div class="row" *ngFor="let produto of this.produtos; let i = index">
       <div class="col-lg-12">
         <div class="cont-cesta ">
-          <div class="col-lg-12 produto-cesta">
+          <div class="col-lg-12 produto-cesta produto">
 
             <div class="col-lg-2">
-              <img [src]="produtos.imagem[0].linkImagem" width="100%" height="100%">
+              <img [src]="produto.imagem[0].linkImagem" width="100%" height="100%">
             </div>
-
+          
             <div class="col-lg-3" style="text-align:center">
               <ul>
-                <span>{{produtos.nome}}</span>
+                <span>{{produto.nome}}</span>
               </ul>
             </div>
+            <!-- onclick="AddCarrinho(produto.nome, document.getElementById('qtd[i]').value, produto.preco, [i])"> -->
 
             <div class="col-lg-2">
-              <div data-app="produto.qtProduto" id="qtProduto">
+              <input class="quantity" type="number" id=qtd
+                (click)="AddCarrinho(produto.nome, produto.quantidade, produto.preco, [i+1])" value="1" min="1"
+                [(ngModel)]="produto.quantidade" aria-label="Search" class="form-control" style="width: 100px">
+
+              <!-- <div data-app="produto.qtProduto" id="qtProduto">
                 <span id="span_erro_carrinho" class="blocoAlerta" style="display:none;">Selecione uma opção para
                   variação do produto</span>
                 <button type="button" id="balt" (click)="alteraCesta(i,-1)"><svg width="1em" height="1em"
@@ -58,18 +69,18 @@
                     <path fill-rule="evenodd"
                       d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                   </svg></button>
-              </div>
+              </div> -->
             </div>
 
-            <div class=" col-lg-2">
-              <span>
+            <div class="col-lg-2 price">
+              <span id="precoUnitario">
                 {{produto.preco | currency: 'BRL'}}
               </span>
             </div>
 
             <div class=" col-lg-2">
               <span>
-                {{produto.preco * produto.quantidade | currency: 'BRL'}}
+                {{AddCarrinho(produto.nome, produto.quantidade, produto.preco, [i+1]) | currency: 'BRL'}}
               </span>
             </div>
             <div class="col-lg-12 remove">
@@ -107,19 +118,24 @@
       <li>
         <div class=" col-lg-12 linha-cesta"></div>
       </li>
-      <li class=" col-lg-12 desc-resumo">
+      <!-- <div id="itens"> </div> -->
+      <div>Total: <span id="total"></span> </div>
+      <!-- <li class=" col-lg-12 desc-resumo">
         Total:
-      </li>
-      <li class=" col-lg-12">
+      </li> -->
+      <!-- <li id="total" class=" col-lg-12"> -->
         <!-- {{produtos.valorUnidade | currency: 'BRL': true}} -->
-        {{ calculaCesta() | currency: 'BRL' }}
+        <!-- {{ calculaCesta() | currency: 'BRL' }} -->
 
-      </li>
+      <!-- </li> -->
     </ul>
 
 
     <form action="" class="col-lg-12">
-      <button type="submit" class="btn btnFinalizar btn-success" routerLink="entrega">Finalizar Compra</button>
+      <div class="form-group">
+        <input type="button" class="btn btn-success" (click)="finalizarCompra()" value="Finalizar Compra">
+      </div>
+      <!-- <button type="submit" class="btn btnFinalizar btn-success" routerLink="/checkout">Finalizar Compra</button> -->
     </form>
   </div>
 </div>

@@ -26,13 +26,37 @@ export class LoginComponent implements OnInit {
     try {
       const result = await this.accountService.login(this.login);
       const resultToken = await this.accountService.getUser();
+      const resultTipo = await this.accountService.getUserTipo();
       // console.log(`Login efetuado: ${result}`);
       // console.log(`ID Usuário: ${resultToken}`);
 
-      // navego para a rota vazia novamente
-      this.router.navigate(['']);
+      if (this.verificaAdmin() == true) {
+        this.router.navigate(['/produtos/listar']);
+      } else if (this.verificaEstoquista() == true) {
+        this.router.navigate(['/estoquista/listar']);
+      } else {
+        this.router.navigate(['/home']);
+      }
+
+
     } catch (error) {
       console.error(error);
     }
+  }
+
+  verificaAdmin() {
+    const tipo = window.localStorage.getItem('tipo');
+    if (tipo != 'Administrador') {
+      return false;
+    }
+    return true;
+  }
+
+  verificaEstoquista() {
+    const tipo = window.localStorage.getItem('tipo');
+    if (tipo != 'Estoquista') {
+      return false;
+    }
+    return true;
   }
 }

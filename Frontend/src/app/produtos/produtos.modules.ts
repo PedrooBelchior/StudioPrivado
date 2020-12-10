@@ -25,6 +25,13 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
 import { AcessoUsuarioComponent } from './account/acesso-usuario/acesso-usuario.component';
 import { TestesComponent } from './testes/testes.component';
+import { MinhaContaComponent } from './account/minha-conta.component';
+import { HeaderComponent } from '../header/header.component';
+import { EstoquistaPedidosComponent } from './estoquista/estoquista-pedidos/estoquista-pedidos.component';
+import { ValidarCarrinhoComponent } from './checkout/validar-carrinho/validar-carrinho.component';
+import { PedidosAccountComponent } from './account/pedidos-account/pedidos-account.component';
+import { DetalhePedidoAccountComponent } from './account/pedidos-account/detalhe-pedido-account/detalhe-pedido-account.component';
+import { AtividadeComponent } from './AtividadeDatas/atividade';
 
 @NgModule({
   declarations: [ListarComponent,
@@ -33,6 +40,7 @@ import { TestesComponent } from './testes/testes.component';
     VisualizarComponent,
     EstoquistaComponent,
     EstoquistaEditarComponent,
+    EstoquistaPedidosComponent,
     HomeProdutosComponent,
     PaginaProdutoComponent,
     UsersListarComponent,
@@ -42,8 +50,16 @@ import { TestesComponent } from './testes/testes.component';
     CheckoutComponent,
     CreateAccountComponent,
     EditAccountComponent,
+    PedidosAccountComponent,
+    DetalhePedidoAccountComponent,
     AcessoUsuarioComponent,
-    TestesComponent
+    MinhaContaComponent,
+    TestesComponent,
+    VisualizarComponent,
+    ValidarCarrinhoComponent,
+    AtividadeComponent
+    
+    
   ],
   imports: [
     CommonModule,
@@ -59,6 +75,7 @@ import { TestesComponent } from './testes/testes.component';
     UserService,
     RouterModule,
     ModalDirective,
+    HeaderComponent
 
   ]
 })

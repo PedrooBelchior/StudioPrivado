@@ -1,92 +1,8 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-  <div class="container">
-
-    <!-- Brand -->
-    <a class="navbar-brand waves-effect" routerLink="/home">
-      <strong class="blue-text">Studio141</strong>
-    </a>
-
-    <!-- Collapse -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <!-- Left -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link waves-effect" routerLink="/home">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/home" target="_blank">Categorias</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/produtos">Produtos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/home">Contato</a>
-        </li>
-      </ul>
-
-      <!-- Right -->
-      <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item">
-          <a class="nav-link waves-effect">
-            <span class="badge red z-depth-1 mr-1"> 0 </span>
-            <i class="fas fa-shopping-cart"></i>
-            <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="https://www.facebook.com/" class="nav-link waves-effect" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="https://twitter.com/" class="nav-link waves-effect" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="https://github.com/PedrooBelchior/Studio141"
-            class="nav-link border border-light rounded waves-effect" target="_blank">
-            <i class="fab fa-github mr-2"></i>Studio141
-          </a>
-        </li>
-      </ul>
-
-    </div>
-
-  </div>
-</nav>
-<nav class="navbar navbar-expand-lg navbar-dark black">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/home"><strong>Navbar</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home">Profile</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<!-- Navbar -->
+<br>
+<div class="container">
+    <h2></h2>
+</div>
+<br>
 
 <!--Main layout-->
 <main class="mt-5 pt-4">
@@ -202,7 +118,7 @@
             <!-- <span class="mr-1">
               <del>$200</del>
             </span> -->
-            <span>R${{request.preco}}</span>
+            <span>{{request.preco | currency: 'BRL' }}</span>
           </p>
           <p class="lead font-weight-bold">Nome</p>
           <p>{{request.nome}}</p>
@@ -213,7 +129,7 @@
 
           <form class="d-flex justify-content-left">
             <!-- Default input -->
-            <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+            <!-- <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px"> -->
             <button id="btnBuyProd" (click)="addCesta()" class="btn btn-primary btn-md my-0 p" type="submit">Adcionar ao carrinho
               <i class="fas fa-shopping-cart ml-1"></i>
             </button>

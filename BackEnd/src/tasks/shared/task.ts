@@ -5,20 +5,7 @@ export class Task extends Document{
     nome: string;
     marca: string;
     categoria:string;
-        // [
-        //     {
-        //         corda:
-        //         {
-        //             guitarra, baixo, ukulele
-        //         },
-        //         percussao:
-        //         {
-        //             bateria, cajon
-        //         }
-        //     },
-
-        // ];
-    preco: string;
+    preco: number;
     descricao: string;
     palavraChave: string;
     quantidade: number;

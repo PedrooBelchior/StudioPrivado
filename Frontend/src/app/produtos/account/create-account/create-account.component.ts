@@ -30,6 +30,7 @@ export class CreateAccountComponent implements OnInit {
     nome: null,
     sobrenome: null,
     statusUsuario: "Ativo",
+    pedido:[],
   };
   validarCPF = true;
   validarEmail = true;

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { User } from './user';
+import { User, Pedido } from './user';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
@@ -8,7 +8,10 @@ import { Model } from 'mongoose';
 @Injectable()
 export class UserService {
 
-    constructor(@InjectModel('User') private readonly userModel: Model<User>) { }
+    constructor(@InjectModel('User') private readonly userModel: Model<User>,
+    @InjectModel('User') private readonly pedidoModel: Model<Pedido>
+    
+    ) { }
 
     async getAll() {
         return await this.userModel.find().exec();
@@ -19,9 +22,17 @@ export class UserService {
         return await this.userModel.findById(id).exec();
     }
 
-    async getByEmail(email : string) {
-        return await this.userModel.findOne({email: email}).exec();
-    } 
+    async getByPeidoId(id: string) {
+        return await this.pedidoModel.findById(id).exec();
+    }
+
+    async getByEmail(email: string) {
+        return await this.userModel.findOne({ email: email }).exec();
+    }
+
+    async getByTipo(tipo: string) {
+        return await this.userModel.findOne({ tipo: tipo }).exec();
+    }
 
 
     async create(user: User) {
@@ -36,5 +47,14 @@ export class UserService {
 
     async delete(id: string) {
         return await this.userModel.deleteOne({ _id: id }).exec();
+    }
+
+    async getAllOrder() {
+        return await this.userModel.aggregate([
+            {
+                $project:
+                    { "pedido": 1 }
+            }
+        ])
     }
 }

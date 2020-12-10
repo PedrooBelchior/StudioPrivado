@@ -1,271 +1,355 @@
-<!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-  <div class="container">
-
-    <!-- Brand -->
-    <a class="navbar-brand waves-effect" routerLink="/home">
-      <strong class="blue-text">Studio141</strong>
-    </a>
-
-    <!-- Collapse -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <!-- Left -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link waves-effect" routerLink="/home">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/home">Categorias</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/produtos">Produtos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/home">Contato</a>
-        </li>
-      </ul>
-
-      <!-- Right -->
-      <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/checkout">
-            <span class="badge red z-depth-1 mr-1"> 0 </span>
-            <i class="fas fa-shopping-cart"></i>
-            <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="https://www.facebook.com/" class="nav-link waves-effect" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="https://twitter.com/" class="nav-link waves-effect" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="https://github.com/PedrooBelchior/Studio141"
-            class="nav-link border border-light rounded waves-effect" target="_blank">
-            <i class="fab fa-github mr-2"></i>Studio141
-          </a>
-        </li>
-      </ul>
-
-    </div>
-
-  </div>
-</nav>
-<!-- Navbar -->
+<br>
+<div class="container">
+    <h2></h2>
+</div>
+<br>
 
 <!--Main layout-->
 <main class="mt-5 pt-4">
-  <div class="container wow fadeIn">
+    <div class="container wow fadeIn">
 
-    <!-- Heading -->
-    <h2 class="my-5 h2 text-center">Checkout</h2>
+        <!-- Heading -->
+        <h2 class="my-5 h2 text-center">Checkout</h2>
 
-    <!--Grid row-->
-    <div class="row" style="justify-content: center;">
+        <!--Grid row-->
+        <div class="row">
 
-      <!--Grid column-->
-      <div class="col-md-8 mb-4">
+            <!--Grid column-->
+            <div class="col-md-12 mb-4">
 
-        <!--Card-->
-        <div class="card">
+                <!--Card-->
+                <div class="card">
 
-          <!--Card content-->
-          <form class="card-body">
+                    <!--Card content-->
+                    <form class="card-body" #formProduto="ngForm">
 
-            <!--Grid row-->
-            <div class="row">
+                        <!--Grid row-->
+                        <div class="row">
 
-              <!--Grid column-->
-              <div class="col-md-6 mb-2">
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-3">
 
-                <!--firstName-->
-                <div class="md-form ">
-                  <input type="text" id="firstName" class="form-control">
-                  <label for="firstName" class="">Nome</label>
+                                <!--firstName-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" id="firstName" class="form-control" minlength='3' disabled name="nome" [(ngModel)]="request.nome" #nome="ngModel">
+                                    <label for="firstName" class="active">Nome</label>
+                                    <div class="valid-feedback">Ok!</div>
+                                    <div class="invalid-feedback">Insira sobrenome com no mínimo 3 caracteres</div>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+                            <div class="col-md-1 mb-2"></div>
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-2">
+
+                                <!--lastName-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" id="lastName" class="form-control" minlength='3' name="sobrenome" [(ngModel)]="request.sobrenome" #sobrenome="ngModel" disabled>
+                                    <label for="lastName" class="active">Sobrenome</label>
+                                    <div class="valid-feedback">Ok!</div>
+                                    <div class="invalid-feedback">Insira sobrenome com no mínimo 3 caracteres</div>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-3">
+
+                                <!--E-mail-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="email" id="email" class="form-control" name="email" [(ngModel)]="request.email" #email="ngModel" disabled>
+                                    <label for="email" class="active">Email</label>
+                                    <div id="emailInvalido" class="valid-feedback">Ok!</div>
+                                    <div id="" class="invalid-feedback">Insira um e-mail válido</div>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+                            <div class="col-md-1 mb-2"></div>
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-2">
+
+                                <!--CPF-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input id="cpf" class="form-control" type="text" min="0" name="cpf" [(ngModel)]="request.cpf" #cpf="ngModel" disabled>
+                                    <label for="cpf" class="active">CPF</label>
+                                    <div id="cpfInvalido" class="valid-feedback">Ok!</div>
+                                    <div class="invalid-feedback">Insira um CPF válido</div>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-2">
+
+                              
+                            </div>
+
+                            <!--Grid column-->
+                            <div class="col-md-1 mb-2"></div>
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-2">
+
+
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Endereco-->
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-3">
+
+                                <!--CEP-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" class="form-control" name="cep" [(ngModel)]="endereco.cep" #cep="ngModel" (blur)="consultaCEP($event.target.value,formProduto)">
+                                    <label for="cep" class="">CEP</label>
+                                    <div class="invalid-feedback">
+                                        CEP obrigatório para continuar.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+                            <div class="col-md-3 mb-2">
+                                <!--Numero-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="number" class="form-control" min="0" name="numero" [(ngModel)]="endereco.numero" #numero="ngModel">
+                                    <label for="numero" class="">Número do endereço</label>
+                                    <div class="invalid-feedback">
+                                        Número obrigatório para continuar.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-2">
+                                <!--Grid column-->
+                                <!--Numero-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" class="form-control" name="complemento" [(ngModel)]="endereco.complemento" #complemento="ngModel">
+                                    <label for="complemento" class="">Complemento</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-3">
+
+                                <!--Logadouro-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" class="form-control" name="rua" [(ngModel)]="endereco.rua" #rua="ngModel">
+                                    <label for="rua" class="">Logadouro</label>
+                                    <div class="invalid-feedback">
+                                        Logadouro obrigatório para continuar.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-2">
+                                <!--Grid column-->
+                                <!--Numero-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" class="form-control" name="bairro" [(ngModel)]="endereco.bairro" #bairro="ngModel">
+                                    <label for="bairro" class="">Bairro</label>
+                                    <div class="invalid-feedback">
+                                        Bairro obrigatório para continuar.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-3">
+
+                                <!--CEP-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" class="form-control" name="cidade" [(ngModel)]="endereco.cidade" #cep="ngModel">
+                                    <label for="cidade" class="">Cidade</label>
+                                    <div class="invalid-feedback">
+                                        Cidade obrigatória para continuar.
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--Grid column-->
+                            <div class="col-md-2 mb-2">
+                                <!--Numero-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" class="form-control" name="estado" [(ngModel)]="endereco.estado" #estado="ngModel">
+                                    <label for="estado" class="">Estado</label>
+                                    <div class="invalid-feedback">
+                                        Estado obrigatório para continuar.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+                            <div class="col-md-4 mb-2">
+                                <!--Grid column-->
+                                <!--Numero-->
+                                <div class="md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <input type="text" class="form-control" name="pais" [(ngModel)]="endereco.pais" #pais="ngModel">
+                                    <label for="pais" class="">País</label>
+                                    <div class="invalid-feedback">
+                                        País obrigatório para continuar.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                        <input type="submit" class="btn btn-success" (click)="enderecos()" value="Adicionar Endereço">
+                        <hr class="mb-4">
+                        <div class='row ' style='text-align: center'>
+                            <table class="table">
+                                <thead class="thead-default tituloTabela md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <tr>
+                                        <th scope="col">Rua</th>
+                                        <th scope="col">Número</th>
+                                        <th scope="col">Bairro</th>
+                                        <th scope="col">Complemento</th>
+                                        <th scope="col">CEP</th>
+                                        <th scope="col">Cidade</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Páis</th>
+                                        <th scope="col">Endereço de Entrega</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor='let end of request.endereco; let i = index'>
+                                        <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                                        <td class="maxCarch">{{ end.rua }}</td>
+                                        <td class="maxCarch">{{ end.numero }}</td>
+                                        <td class="maxCarch">{{ end.bairro }}</td>
+                                        <td class="maxCarch">{{ end.complemento }}</td>
+                                        <td class="maxCarch">{{ end.cidade }}</td>
+                                        <td class="maxCarch">{{ end.cep }}</td>
+                                        <td class="maxCarch">{{ end.estado }}</td>
+                                        <td class="maxCarch">{{ end.pais }}</td>
+                                        <td>
+                                            <!-- <div class="custom-control custom-radio">
+                                                <input  name="test" type="checkbox" class="custom-control-input" required>
+                                                <label class="custom-control-label" for="test">Cartão de crédito</label>
+                                              </div> -->
+                                            <abbr title="Selecionar Endereço">
+                                                <input class="custom-control-input" type="radio" (click)="selecionarItem(i)">
+                                                <label class="custom-control-label" for="test">Cartão de crédito</label>
+                                            </abbr>&nbsp;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>&nbsp;
+                        <!--Grid row-->
+                        <div class="d-block my-3">
+                          <div class="custom-control custom-radio">
+                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                            <label class="custom-control-label" for="credit">Cartão de crédito</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="debit">Cartão de débito</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="paypal">Boleto Bancário</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <label for="cc-name">Nome no cartão</label>
+                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                            <small class="text-muted">Nome completo conforme exibido no cartão</small>
+                            <div class="invalid-feedback">
+                              Nome do cartão é obrigatório.
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="cc-number">
+                              Número do Cartão de Crédito</label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                            <div class="invalid-feedback">
+                              O número do cartão de crédito é obrigatório.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3 mb-3">
+                            <label for="cc-expiration">Vencimento</label>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                            <div class="invalid-feedback">
+                              Data de expiração necessária.
+                            </div>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="cc-expiration">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                            <div class="invalid-feedback">
+                              Código de segurança necessário.
+                            </div>
+                          </div>
+                        </div>
+
+                     
+
+                        <hr class="mb-4">
+
+
+
+                        <div class="form-group">
+                          
+                          <input type="button" class="btn btn-success" [routerLink]="['/validar-carrinho']"  value="Continue para
+                          finalizar a compra" [disabled]="formProduto.form.invalid">
+                          <a [routerLink]="['/home']"><button type="button"
+                          class="btn btn-danger botaoCancelar">Cancelar</button></a>
+                          </div>
+            
+                        <!-- <div class="form-group">
+                            <input type="button" class="btn btn-info"  value="Atualizar" [disabled]="formProduto.form.invalid">
+                            
+                        </div> -->
+
+
+                    </form>
+
                 </div>
-
-              </div>
-              <!--Grid column-->
-
-              <!--Grid column-->
-              <div class="col-md-6 mb-2">
-
-                <!--lastName-->
-                <div class="md-form">
-                  <input type="text" id="lastName" class="form-control">
-                  <label for="lastName" class="">Sobrenome</label>
-                </div>
-
-              </div>
-              <!--Grid column-->
+                <!--/.Card-->
 
             </div>
-            <!--Grid row-->
 
-            <!--Username-->
-            <div class="md-form input-group pl-0 mb-5">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">@</span>
-              </div>
-              <input type="text" class="form-control py-0" placeholder="Usuário" aria-describedby="basic-addon1">
-            </div>
-
-            <!--email-->
-            <div class="md-form mb-5">
-              <input type="text" id="email" class="form-control">
-              <label for="email" class="">Email</label>
-            </div>
-
-            <!--address-->
-            <div class="md-form mb-5">
-              <input type="text" id="address" class="form-control">
-              <label for="address" class="">Endereço</label>
-            </div>
-
-            <!--address-2-->
-            <div class="md-form mb-5">
-              <input type="text" id="address-2" class="form-control">
-              <label for="address-2" class="">Endereço 2 (Opcional)</label>
-            </div>
-
-            <!--Grid row-->
-            <div class="row">
-
-              <!--Grid column-->
-              <div class="col-lg-4 col-md-12 mb-4">
-
-                <label for="country">Páis</label>
-                <select class="custom-select d-block w-100" id="country" required>
-                  <option value="">Escolha...</option>
-                  <option>Brasil</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor selecione um país válido.
-                </div>
-
-              </div>
-              <!--Grid column-->
-
-              <!--Grid column-->
-              <div class="col-lg-4 col-md-6 mb-4">
-
-                <label for="state">Estado</label>
-                <select class="custom-select d-block w-100" id="state" required>
-                  <option value="">Escolha...</option>
-                  <option>São Paulo</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor selecione um estado válido.
-                </div>
-
-              </div>
-              <!--Grid column-->
-
-              <!--Grid column-->
-              <div class="col-lg-4 col-md-6 mb-4">
-
-                <label for="zip">CEP</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
-                <div class="invalid-feedback">
-                  CEP obrigatório para continuar.
-                </div>
-
-              </div>
-              <!--Grid column-->
-
-            </div>
-            <!--Grid row-->
-
-            <hr>
-
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="same-address">
-              <label class="custom-control-label" for="same-address">O endereço de entrega é igual ao meu endereço de
-                cobrança</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
-              <label class="custom-control-label" for="save-info">Guarde esta informação para a próxima vez</label>
-            </div>
-
-            <hr>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Cartão de crédito</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">Cartão de débito</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">Paypal</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc-name">Nome no cartão</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                <small class="text-muted">Nome completo conforme exibido no cartão</small>
-                <div class="invalid-feedback">
-                  Nome do cartão é obrigatório.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc-number">
-                  Número do Cartão de Crédito</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                <div class="invalid-feedback">
-                  O número do cartão de crédito é obrigatório.
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Vencimento</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                <div class="invalid-feedback">
-                  Data de expiração necessária.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                <div class="invalid-feedback">
-                  Código de segurança necessário.
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" routerLink="/validar-carrinho">Continue para
-              finalizar a compra</button>
-
-          </form>
 
         </div>
-        <!--/.Card-->
-
-      </div>
-      <!--Grid column-->
+        <!--Grid row-->
 
     </div>
-    <!--Grid row-->
-
-  </div>
-</main>

@@ -15,7 +15,8 @@ export class AccountService {
     const result = await this.http.post<any>(`${environment.api}/auth/login`, user).toPromise();
     if (result && result.access_token) {
       window.localStorage.setItem('token', result.access_token);
-
+      this.getUserTipo();
+      this.getUser();
       return true;
     }
 
@@ -32,6 +33,35 @@ export class AccountService {
   getAuthorizationToken() {
     const token = window.localStorage.getItem('token');
     return token;
+  }
+
+  
+  getUserTipo(){
+    //Pego o token
+    const token = this.getAuthorizationToken();
+    //Descriptografo a sessão, pego o ID do usuário
+    const decoded: any = jwt_decode(token);
+    if (decoded.tipo != null) {
+      //Seto  o ID no localStorage
+      window.localStorage.setItem('tipo', decoded.tipo );
+      // console.log(decoded.sub);
+      return decoded.tipo;
+    }
+  }
+  
+  // Pego  o usuário logado, descriptografo a sessão, pego seu ID e seto no localStorage
+  // Para utilizar depois no header e no restante do site.
+  getUser(){
+    //Pego o token
+    const token = this.getAuthorizationToken();
+    //Descriptografo a sessão, pego o ID do usuário
+    const decoded: any = jwt_decode(token);
+    if (decoded.sub != null) {
+      //Seto  o ID no localStorage
+      window.localStorage.setItem('id', decoded.sub );
+      // console.log(decoded.sub);
+      return decoded.sub;
+    }
   }
 
 
@@ -70,18 +100,7 @@ export class AccountService {
     return date;
   }
 
-  // Pego  o usuário logado, descriptografo a sessão, pego seu ID e seto no localStorage
-  // Para utilizar depois no header e no restante do site.
-  getUser(){
-    //Pego o token
-    const token = this.getAuthorizationToken();
-    //Descriptografo a sessão, pego o ID do usuário
-    const decoded: any = jwt_decode(token);
-    if (decoded.sub != null) {
-      //Seto  o ID no localStorage
-      window.localStorage.setItem('id', decoded.sub );
-      // console.log(decoded.sub);
-      return decoded.sub;
-    }
-  }
+
+
+  
 }

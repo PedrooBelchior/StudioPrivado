@@ -21,23 +21,26 @@ export const UserSchema = new mongoose.Schema({
     nome: String,
     sobrenome: String,
     statusUsuario: String,
-    pedido: 
-    [
-        {
-            numero: String,
-            data: String,
-            hora: String,
-            status: String,
-            valorTotal: String,
-            itens: 
-            [
-                    {
-                        nome: String,
-                        quantidade: String,
-                        valorUnitario: String
-                    }
+    pedido:
+        [
+            {
+                numero: String,
+                data: String,
+                hora: String,
+                status: String,
+                valorTotalCompra: String,
+                enderecoEntrega: {},
+                formaDePgmto: String,
+                itens:
+                    [
+                        {
+                            nome: String,
+                            quantidade: String,
+                            valorUnitario: String,
+                            valorTotalItem: String,
+                        }
 
-            ],
-        }
-    ],
+                    ],
+            }
+        ],
 })

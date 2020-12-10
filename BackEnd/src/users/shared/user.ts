@@ -6,7 +6,7 @@ export class User extends Document {
     password: string;
     email: string;
     cpf: string;
-    endereco:[
+    endereco: [
         {
             rua: string,
             numero: string,
@@ -21,5 +21,36 @@ export class User extends Document {
     tipo: string;
     nome: string;
     sobrenome: string;
-    status: string;
+    statusUsuario: string;
+    pedido: Pedido[]
+
+}
+
+export class Pedido extends Document {
+    pedido:
+        [
+            {
+                numero: string;
+                data: string;
+                hora: string;
+                status: string;
+                valorTotalCompra: string;
+                enderecoEntrega: {};
+                formaDePgmto:string;
+                itens: Itens[]
+            }
+        ]
+}
+
+export class Itens extends Document {
+    itens:
+        [
+            {
+                nome: string;
+                quantidade: string;
+                valorUnitario: string;
+                valorTotalItem: string;
+            }
+
+        ]
 }

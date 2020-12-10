@@ -27,6 +27,7 @@ export class UsersListarComponent implements OnInit {
     nome: null,
     sobrenome: null,
     statusUsuario: "Bloqueado",
+    pedido:[],
   };
 
   constructor(

@@ -5,7 +5,7 @@ export const TaskSchema = new mongoose.Schema({
     nome: String,
     marca: String,
     categoria: String,
-    preco: String,
+    preco: Number,
     descricao: String,
     palavraChave: String,
     quantidade: Number,

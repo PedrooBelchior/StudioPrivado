@@ -15,10 +15,17 @@ import { LoginComponent } from './account/login/login.component';
 import { HomeProdutosComponent } from './home-produtos/home-produtos.component';
 import { AuthGuard } from './account/shared/auth.guard';
 import { CreateAccountComponent } from './account/create-account/create-account.component';
-import { EditAccountComponent } from './account/edit-account/edit-account.component';
+
 import { AcessoUsuarioComponent } from './account/acesso-usuario/acesso-usuario.component';
 import { TestesComponent } from './testes/testes.component';
-import { ValidarCarrinhoComponent } from './validar-carrinho/validar-carrinho.component';
+
+import { EditAccountComponent } from './account/edit-account/edit-account.component';
+import { MinhaContaComponent } from './account/minha-conta.component';
+import { EstoquistaPedidosComponent } from './estoquista/estoquista-pedidos/estoquista-pedidos.component';
+import { ValidarCarrinhoComponent } from './checkout/validar-carrinho/validar-carrinho.component';
+import { PedidosAccountComponent } from './account/pedidos-account/pedidos-account.component';
+import { DetalhePedidoAccountComponent } from './account/pedidos-account/detalhe-pedido-account/detalhe-pedido-account.component';
+import { AtividadeComponent } from './AtividadeDatas/atividade';
 
 
 
@@ -31,34 +38,40 @@ export const ProdutosRoutes: Routes = [
   {
     path: 'produtos/listar',
     component: ListarComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'produtos/cadastrar',
     component: CadastrarComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'produtos/editar/:id',
     component: EditarComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
 
   {
     path: 'produtos/visualizar/:id',
     component: VisualizarComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
 
   {
     path: 'estoquista/listar',
     component: EstoquistaComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
+  {
+    path: 'estoquista/pedidos',
+    component: EstoquistaPedidosComponent,
+    canActivate: [AuthGuard]
+  },
+
   {
     path: 'estoquista/editar/:id',
     component: EstoquistaEditarComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
 
   {
@@ -74,17 +87,17 @@ export const ProdutosRoutes: Routes = [
   {
     path: 'users/listar',
     component: UsersListarComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'users/cadastrar',
     component: UsersCadastrarComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'users/editar/:id',
     component: UsersEditarComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
 
   {
@@ -94,9 +107,9 @@ export const ProdutosRoutes: Routes = [
   },
 
   {
-    path: 'checkout',
+    path: 'checkout/:id',
     component: CheckoutComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
 
   {
@@ -107,7 +120,19 @@ export const ProdutosRoutes: Routes = [
   {
     path: 'editar-usuario/:id',
     component: EditAccountComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'meus-pedidos/:id',
+    component: PedidosAccountComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'detalhe-pedido/:id',
+    component: DetalhePedidoAccountComponent,
+    canActivate: [AuthGuard]
   },
 
   {
@@ -116,13 +141,25 @@ export const ProdutosRoutes: Routes = [
   },
 
   {
-    path: 'testes',
+    path: 'minha-conta',
+    component: MinhaContaComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'meu-carrinho',
     component: TestesComponent
   },
 
   {
-  path: 'validar-carrinho',
-  component: ValidarCarrinhoComponent
-  }
-  
+    path: 'validar-carrinho',
+    component: ValidarCarrinhoComponent
+  },
+
+  {
+    path: 'atividade',
+    component: AtividadeComponent
+  },
+
+
 ];

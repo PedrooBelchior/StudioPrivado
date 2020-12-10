@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ProdutoService } from '../shared/produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CestaService } from './../testes/shared/cesta.service';
+import { HeaderComponent } from 'src/app/header/header.component';
 
 @Component({
   selector: 'app-pagina-produto',
@@ -22,7 +23,8 @@ export class PaginaProdutoComponent implements OnInit {
     private cestaService: CestaService,
     private produtoService: ProdutoService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private header: HeaderComponent,
   ) { }
 
   ngOnInit(): void {
@@ -32,10 +34,12 @@ export class PaginaProdutoComponent implements OnInit {
     
   }
 
-  addCesta(id:any){
-    this.cestaService.addCesta(this.id);
+  addCesta(){
+    this.cestaService.addCesta(this.request);
     window.alert('O produto foi adicionado a cesta!!');
-    console.log(this.id);
+    this.header.alteraQTD();
+    // console.log(this.id);
+    this.router.navigate(['/home']);
   }
 
 }

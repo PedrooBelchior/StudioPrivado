@@ -1,0 +1,176 @@
+<br>
+<div class="container">
+    <h2></h2>
+</div>
+<br>
+
+<!--Main layout-->
+<main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+
+        <!-- Heading -->
+        <h2 class="my-5 h2 text-center">Meus Pedidos</h2>
+
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-12 mb-4">
+
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card content-->
+                    <form class="card-body" #formProduto="ngForm">
+                        <hr class="mb-4">
+                        <div class='row ' style='text-align: center'>
+
+
+                            <tr *ngFor="let ped of request.pedido">
+                                <td *ngFor="let item of ped.itens">
+                                    <p>Nome do produto: {{ item.nome }}</p>
+                                    <hr>
+                                    <p>Quantidade comprada: {{ item.quantidade }}</p>
+                                    <hr>
+                                    <p>Valor unitário: {{ item.valorUnitario | currency: 'BRL'}}</p>
+                                    <hr>
+                                    <p>Valor total do item: {{ item.valorTotalItem | currency: 'BRL' }}</p>
+                                    <hr>
+                                </td>
+                            </tr>
+
+
+
+                            <table class="table">
+                                <thead
+                                    class="thead-default tituloTabela md-form was-validated col-md-11 mb-11 col-xs-11 col-sm-11 ">
+                                    <tr>
+
+                                        <th scope="col">Número do Pedido</th>
+                                        <th scope="col">Data da Compra</th>
+                                        <th scope="col">Valor Total</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor='let pedido of request.pedido; let i = index'>
+                                        <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                                        <!-- <td class="maxCarch">{{ end.nome }}</td> -->
+                                        <!-- <td class="maxCarch">{{ pedido._id }}</td> -->
+                                        <td class="maxCarch">{{ pedido._id }}</td>
+                                        <td class="maxCarch">{{ pedido.data }}</td>
+                                        <!-- <td class="maxCarch">{{ pedido.hora }}</td> -->
+                                        <!-- <td class="maxCarch">{{ end.cidade }}</td> -->
+                                        <td class="maxCarch">{{ pedido.valorTotalCompra | currency: 'BRL'  }}</td>
+                                        <td class="maxCarch">{{ pedido.status }}</td>
+                                        <td>
+                                            <abbr title="Atualizar Usuário">
+                                                <button type="button" class="btn btn-info"
+                                                    [routerLink]="['/users/editar', pedido._id]">
+                                                    <!-- <i class="fa fa-pencil">
+                                                          </i> --><i class="fas fa-user-edit"></i>
+                                                </button>
+                                            </abbr>&nbsp;
+                                            <abbr title="Bloquear Usuário">
+                                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                    data-target="#excluirModal"
+                                                    (click)="remover(pedido._id, pedido)">
+                                                    <!-- <i class="fa fa-trash"></i> --><i class="fas fa-ban"></i>
+                                                </button>
+                                            </abbr>&nbsp;
+
+                                            <!-- <abbr title="Detalhes do Pedido">
+                                                <button type="button" (click)="selecionarItem(i)" class="btn btn-info"
+                                                    data-toggle="modal" data-target="#removerProduto">
+                                                    <i class="fas fa-file-alt"></i>
+                                                </button>
+                                            </abbr>&nbsp; -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>&nbsp;
+                        <!--Grid row-->
+
+                        <!-- Modal Excluir-->
+                        <div class="modal fade" id="removerProduto" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-notify modal-info " role="document">
+                                <!--Content-->
+                                <div class="modal-content text-center">
+                                    <!--Header-->
+                                    <div class="modal-header d-flex justify-content-center">
+                                        <h2 class="heading">Detalhes do Pedido</h2>
+                                    </div>
+
+                                    <!--Body-->
+                                    <div class="modal-body justify-content-center">
+
+                                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                                        <br>
+                                        <div *ngFor='let pedido of request.pedido; let i = index'>
+                                            <p>Número do Pedido: {{ pedido._id }}</p>
+                                            <hr>
+                                            <p>Data da Compra: {{ pedido.data }}</p>
+                                            <hr>
+                                            <p>Hora da Compra: {{ pedido.hora }}</p>
+                                            <hr>
+                                            <p>Forma de Pagamento: {{ pedido.formaDePgmto }}</p>
+                                            <hr>
+                                            <!-- <p *ngFor='let pedido of request.pedido.itens[]; let i = index'>
+                                                Teste: {{ pedido.valorTotalItem }}</p>
+                                            <hr> -->
+                                            <p>Endereço de Entrega: {{ pedido.enderecoEntrega.rua }}, nº
+                                                {{ pedido.enderecoEntrega.numero }} -
+                                                {{ pedido.enderecoEntrega.bairro }},
+                                                {{ pedido.enderecoEntrega.complemento }},
+                                                {{ pedido.enderecoEntrega.cidade }}-{{ pedido.enderecoEntrega.estado }},
+                                                {{ pedido.enderecoEntrega.pais }} - {{ pedido.enderecoEntrega.cep }}
+                                            </p>
+                                            <hr>
+                                            <p>Valor Total da Compra: {{ pedido.valorTotalCompra | currency: 'BRL'  }}
+                                            </p>
+                                            <hr>
+
+
+                                        </div>
+                                    </div>
+
+                                    <!--Footer-->
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="button" data-dismiss="modal"
+                                            class="btn btn-notify btn-outline-info waves-effect waves-light"
+                                            (click)="cancelarEndereco()">Sim</button>
+                                        <a type="button" class="btn btn-notify btn-info waves-effect"
+                                            data-dismiss="modal">Não</a>
+                                    </div>
+                                </div>
+                                <!--/.Content-->
+                            </div>
+                        </div>
+
+                        <hr class="mb-4">
+
+
+
+                        <div class="form-group">
+
+                            <a [routerLink]="['/minha-conta']"><button type="button"
+                                    class="btn btn-info botaoCancelar">Voltar</button></a>
+                        </div>
+
+
+                    </form>
+
+                </div>
+                <!--/.Card-->
+
+            </div>
+
+
+        </div>
+        <!--Grid row-->
+
+    </div>

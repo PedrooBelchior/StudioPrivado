@@ -26,6 +26,7 @@ export class UsersCadastrarComponent implements OnInit {
     nome: null,
     sobrenome: null,
     statusUsuario: null,
+    pedido:[],
   };
 
   constructor(

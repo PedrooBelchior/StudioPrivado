@@ -1,6 +1,6 @@
 import { UserService } from './shared/user.service';
 import { Controller, Get, Param, Body, Post, Put, Delete, UseGuards } from '@nestjs/common';
-import { User } from './shared/user';
+import { User, Pedido } from './shared/user';
 import { JwtAuthGuard } from './../auth/shared/jwt-auth.guard';
 
 @Controller('users')
@@ -13,6 +13,15 @@ export class UsersController {
     @Get()
     async getAll(): Promise<User[]> {
         return this.usersService.getAll();
+    }
+
+    @Get("/pedidos")
+    async getAllOrder(): Promise<any[]> {
+        return this.usersService.getAllOrder();
+    }
+    @Get("/pedidos/:id")
+    async getByPedidoId(@Param('id') id: string): Promise<Pedido>{
+        return this.usersService.getByPeidoId(id);
     }
 
     
